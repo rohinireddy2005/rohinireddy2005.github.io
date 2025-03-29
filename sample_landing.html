@@ -1,0 +1,1153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ACM VVIT - Advancing Computing Machinery</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        :root {
+            --primary-color: #0056b3;
+            --secondary-color: #ff6b00;
+            --dark-color: #333;
+            --light-color: #f8f9fa;
+            --accent-color: #17a2b8;
+        }
+
+        
+
+        .container {
+            width: 100%;
+            max-width: 1500px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+
+        .btn {
+            display: inline-block;
+            background: var(--primary-color);
+            color: rgb(255, 255, 255);
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            text-decoration: none;
+            font-weight: 600;
+        }
+        .btn:hover{
+            background-color:crimson;
+        }
+
+        .btn-secondary {
+            background: var(--secondary-color);
+        }
+        .btn-secondary:hover{
+background-color: green;
+        }
+        
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+            font-size: 2.5rem;
+            color: var(--primary-color);
+            position: relative;
+        }
+
+        /* Header & Navigation */
+        header {
+            background-color: white;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            background-color:#f5f7fa;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .navbar {
+            display:flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 0;
+           
+            height: 25vh;
+            width:100%;
+        }
+
+        .logo {
+            display:flex;
+            align-items: center;
+            padding: 10px;
+        }
+
+        .logo img {
+            height: 70px;
+            margin-right: 30px;
+        }
+
+        .logo-text h1 {
+            font-size: 1.5rem;
+            color: var(--primary-color);
+            margin-bottom: 5px;
+        }
+
+        .logo-text p {
+            font-size: 0.8rem;
+            color: var(--dark-color);
+        }
+
+        .nav-links {
+            display:flex;
+            list-style:none;
+            margin-right: 50px;
+        }
+
+        .nav-links a {
+            margin-left: 30px;
+            text-indent: 20px;
+            color: var(--dark-color);
+            font-weight: 600;
+            font-size: 21px;
+            transition: color 0.7s;
+            position: relative;
+        }
+
+        .nav-links a:hover {
+            color:crimson;
+        }
+        .nav-links a:active {
+            background-color:rgb(104, 232, 232);
+        }
+
+        /* Hero Section */
+        .content {
+            background: linear-gradient(rgba(8, 8, 26, 0.3), rgba(233, 39, 168, 0.7)), url('https://images.unsplash.com/photo-1523961131990-5ea7c61b2107?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            height: 80vh;
+            display: flex;
+            align-items: center;
+            text-align: center;
+            color: white;
+            margin-top: 80px;
+            margin-bottom: 40px;
+        }
+        .maincontent {
+            max-width: 800px;
+            margin: 0 auto;
+            animation: fadeInUp 2s ease;
+        }
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .content h1 {
+            font-size: 3.5rem;
+            margin-bottom: 70px;
+            line-height: 1.1;
+            text-shadow: 0 2px 5px rgba(0,0,0,0.3);
+        }
+
+        .content p {
+            font-size: 1.3rem;
+            margin-bottom: 35px;
+            opacity: 0.9;
+        }
+
+        .mainbuttons {
+            display: flex;
+            justify-content: center;
+            gap: 25px;
+        }
+
+
+        /* About Section */
+        .about {
+            padding: 100px 0;
+            background-color:aliceblue;
+        }
+
+        .about-content {
+            display: flex;
+            align-items: center;
+            gap: 50px;
+        }
+
+        .about-text {
+            flex: 1.5;
+        }
+
+        .about-text h2 {
+            font-size: 2rem;
+            margin-bottom: 20px;
+            color:brown;
+        }
+
+        .about-text p {
+            margin-bottom: 15px;
+        }
+
+        .about-image {
+            flex: 1;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .about-image img {
+            width: 100%;
+            height: auto;
+            display:flex;
+        }
+
+        /* Events Section */
+        .events {
+            padding: 100px 0;
+        }
+
+        .events-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .event-card {
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s;
+        }
+
+        .event-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .event-image {
+            height: 200px;
+            overflow: hidden;
+        }
+
+        .event-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s;
+        }
+
+        .event-card:hover .event-image img {
+            transform: scale(1.1);
+        }
+
+        .event-info {
+            padding: 20px;
+        }
+
+        .event-info h3 {
+            margin-bottom: 10px;
+            color: var(--primary-color);
+        }
+
+        .event-info .date {
+            display: flex;
+            align-items: center;
+            color: var(--secondary-color);
+            margin-bottom: 10px;
+        }
+
+        .event-info .date i {
+            margin-right: 8px;
+        }
+
+        /* Team Section */
+        .team {
+            padding: 100px 0;
+            background-color: var(--light-color);
+        }
+
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+        }
+
+        .team-member {
+            background: white;
+            padding: 30px 20px;
+            border-radius: 10px;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s;
+        }
+
+        .team-member:hover {
+            transform: translateY(-10px);
+        }
+
+        .member-image {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            overflow: hidden;
+            margin: 0 auto 20px;
+            border: 5px solid var(--light-color);
+        }
+
+        .member-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .member-info h3 {
+            color: var(--primary-color);
+            margin-bottom: 5px;
+        }
+
+        .member-info p {
+            color: var(--secondary-color);
+            font-weight: 600;
+            margin-bottom: 15px;
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+        }
+
+        .social-links a {
+            color: var(--dark-color);
+            font-size: 1.2rem;
+            transition: color 0.3s;
+        }
+
+        .social-links a:hover {
+            color: var(--primary-color);
+        }
+
+        /* Contact Section */
+        .contact {
+            padding: 100px 0;
+        }
+
+        .contact-container {
+            display: flex;
+            gap: 50px;
+        }
+
+        .contact-info {
+            flex: 1;
+        }
+
+        .contact-info h3 {
+            font-size: 1.5rem;
+            color: var(--primary-color);
+            margin-bottom: 20px;
+        }
+
+        .contact-details {
+            margin-bottom: 30px;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 15px;
+        }
+
+        .contact-item i {
+            color: var(--secondary-color);
+            font-size: 1.2rem;
+            margin-right: 15px;
+            margin-top: 5px;
+        }
+
+        .contact-form {
+            flex: 1;
+            background: var(--light-color);
+            padding: 30px;
+            border-radius: 10px;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: 600;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 1rem;
+        }
+
+        .form-group textarea {
+            height: 150px;
+            resize: vertical;
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--dark-color);
+            color: white;
+            padding: 60px 0 20px;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-column h3 {
+            font-size: 1.3rem;
+            margin-bottom: 20px;
+            color: var(--secondary-color);
+            position: relative;
+            padding-bottom: 10px;
+        }
+        .footer-column h3:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 50px;
+            height: 2px;
+            background: var(--accent-color);
+        }
+
+        .footer-column p {
+            margin-bottom: 15px;
+            color: #ccc;
+            line-height: 1.6;
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 12px;
+        }
+
+        .footer-links a {
+            color: #ccc;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            display: inline-block;
+        }
+
+        .footer-links a:hover {
+            color: white;
+            transform: translateX(5px);
+        }
+
+        .social-footer {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .social-footer a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background: rgba(255,255,255,0.1);
+            color: white;
+            border-radius: 50%;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+        }
+
+        .social-footer a:hover {
+            background: var(--secondary-color);
+            transform: translateY(-3px);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: #aaa;
+            font-size: 0.9rem;
+        }
+
+        /* Back to top button */
+        .back-to-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 50px;
+            height: 50px;
+            background: var(--primary-color);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            opacity: 0;
+            visibility: hidden;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            z-index: 999;
+        }
+
+        .back-to-top.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .back-to-top:hover {
+            background: var(--secondary-color);
+            transform: translateY(-5px);
+        }
+        
+        /* Forms Section */
+        .forms-section {
+            padding: 80px 0;
+            background-color: #f5f7fa;
+        }
+        
+        .forms-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 40px;
+            margin-top: 40px;
+        }
+        
+        .form-card {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .form-card h3 {
+            color: var(--primary-color);
+            margin-bottom: 20px;
+            text-align: center;
+            font-size: 1.5rem;
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: var(--dark-color);
+        }
+        
+        .form-group input,
+        .form-group select {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 1rem;
+        }
+        
+        .form-submit {
+            width: 100%;
+            padding: 12px;
+            background-color: var(--primary-color);
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        
+        .form-submit:hover {
+            background-color: #004494;
+        }
+        
+        .form-switch {
+            text-align: center;
+            margin-top: 15px;
+        }
+        
+        .form-switch a {
+            color: var(--primary-color);
+            text-decoration: none;
+            font-weight: 600;
+        }
+        
+        .form-switch a:hover {
+            text-decoration: underline;
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 992px) {
+            .about-content,
+            .contact-container {
+                flex-direction: column;
+            }
+
+            .about-image {
+                order: -1;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                position: fixed;
+                top: 80px;
+                left: -100%;
+                width: 100%;
+                height: calc(100vh - 80px);
+                background: white;
+                flex-direction: column;
+                align-items: center;
+                justify-content: flex-start;
+                padding-top: 40px;
+                transition: left 0.3s;
+            }
+
+            .nav-links.active {
+                left: 0;
+            }
+
+            .nav-links li {
+                margin: 15px 0;
+            }
+
+            .hamburger {
+                display: block;
+            }
+
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero p {
+                font-size: 1rem;
+            }
+
+            .hero-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+            
+            .forms-container {
+                grid-template-columns: 1fr;
+            }
+
+        }
+        .btn1:hover{
+            background-color: #ff6b00;
+        }
+        .btn2:hover{
+            background-color:rgb(34, 223, 151);
+        }
+        .btn3:hover{
+            background-color:darkorchid;
+        
+        }
+        .btn4:hover{
+            background-color: indianred;
+        }
+        .btn5:hover{
+            background-color: crimson;
+        }
+        .btn6:hover{
+            background-color: rgb(213, 232, 104);
+        }
+    </style>
+</head>
+<body>
+    <!-- Header & Navigation -->
+    <header>
+        <div class="container">
+            <nav class="navbar">
+                <div class="logo">
+                    <img src="C:\Users\Admin\Desktop\fsdpractice\vvitlogo.jpg" alt="VVIT logo">
+                    <img src="C:\Users\Admin\Desktop\fsdpractice\acmlogo.jpg" alt="ACM Logo">
+                    <div class="logo-text">
+                        <h1>Association For Computing Machinery</h1>
+                        <p style="font-size: 20px;">Student Chapter</p>
+                    </div>
+                </div>
+                <ul class="nav-links">
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#events">Events</a></li>
+                    <li><a href="#team">Team</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                    <li><a href="#forms">Join Us</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section class="content" id="home">
+        <div class="container">
+            <div class="maincontent">
+                <h1>Advancing Computing Machinery</h1>
+                <p>Join the ACM VVIT Student Chapter to enhance your technical skills, network with professionals, and participate in exciting events and workshops.</p>
+                <div class="mainbuttons">
+                    <a href="#events" class="btn">Upcoming Events</a>
+                    <a href="#forms" class="btn btn-secondary">Become a Member</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about" id="about">
+        <div class="container">
+            <h2 class="section-title">About ACM VVIT</h2>
+            <div class="about-content">
+                <div class="about-text">
+                    <h2>Welcome to Our Chapter</h2>
+                    <p>The ACM VVIT Student Chapter is a vibrant community of computing enthusiasts at vasireddy venkatadri institute of technoogy. We are dedicated to fostering technical excellence, innovation, and professional growth among our members.</p>
+                    <p>As part of the world's largest educational and scientific computing society, we bring together students, faculty, and industry professionals to share knowledge, develop skills, and explore the latest trends in computing technology.</p>
+                    <p>Our chapter organizes various activities including technical workshops, coding competitions, hackathons, guest lectures, and networking events to help students grow both academically and professionally.</p>
+                    <a href="#" class="btn">Learn More</a>
+                </div>
+                <div class="about-image">
+                    <img src="C:\Users\Admin\Desktop\fsdpractice\acm.jpg" alt="ACM VVIT Team">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Events Section -->
+    <section class="events" id="events">
+        <div class="container">
+            <h2 style="color:mediumvioletred" class="section-title">Upcoming Events</h2>
+            <div class="events-grid" >
+                <div class="event-card" id="spardha">
+                    <div class="event-image">
+                        <img src="C:\Users\Admin\Desktop\fsdpractice\SPARDHA.jpg" alt="spardha">
+                    </div>
+                    <div class="event-info">
+                        <h3>SPARDHA</h3>
+                        <div class="date">
+                            <i class="far fa-calendar-alt"></i>
+                            <span>August 22-23, 2024</span>
+                        </div>
+                        <p>Join us for an exciting National level acm fest "SPARDHA" where you can showcase your skills, learn new technologies, and win amazing prizes.</p>
+                        <br><a href="#" class="btn btn1">Register Now</a>
+                    </div>
+                </div>
+                <div class="event-card" id="aveega">
+                    <div class="event-image">
+                        <img src="C:\Users\Admin\Desktop\fsdpractice\aveega.png" alt="aveega">
+                    </div>
+                    <div class="event-info" >
+                        <h3>AVEEGA</h3>
+                        <div class="date">
+                            <i class="far fa-calendar-alt"></i>
+                            <span> september 12, 2024</span>
+                        </div>
+                        <p>join us for exciting public event "AVEEGA"</p><br><br><br>
+                        <br><a href="#" class="btn btn2">Register Now</a>
+                    </div>
+                </div>
+                <div class="event-card "id="vivavvit">
+                    <div class="event-image">
+                        <img src="C:\Users\Admin\Desktop\fsdpractice\vivavvit.jpg" alt="VVIA-VVIT-fest">
+                    </div>
+                    <div class="event-info">
+                        <h3>VVIA-VVIT</h3>
+                        <div class="date">
+                            <i class="far fa-calendar-alt"></i>
+                            <span>December 21-22, 2024</span>
+                        </div>
+                        <p>Join us biggest fest in our vvit college "VIVA-VVIT"</p><br><br>
+                       <br> <a href="#" class="btn btn3">Register Now</a>
+                    </div>
+                </div>
+                <div class="event-card">
+                    <div class="event-image" >
+                        <img src="C:\Users\Admin\Desktop\fsdpractice\hourofcode.png" alt="Hours-Of-Code">
+                    </div>
+                    <div class="event-info" id="hoursofcode">
+                        <h3>Hours-Of-Code</h3>
+                        <div class="date">
+                            <i class="far fa-calendar-alt"></i>
+                            <span>December 10-12, 2024</span>
+                        </div>
+                        <p>join us for exciting public event "Hours-Of-Code" where you shour your coding skills effectively</p>
+                        <br><br><a href="#" class="btn btn4" >Register Now</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Forms Section -->
+    <section class="forms-section" id="forms">
+        <div class="container">
+            <h2 class="section-title" style="color:coral">Member Portal</h2>
+            <div class="forms-container">
+                <!-- Login Form -->
+                <div class="form-card">
+                    <h3>Member Login</h3>
+                    <form id="loginForm">
+                        <div class="form-group">
+                            <label for="loginEmail">Email</label>
+                            <input type="email" id="loginEmail" name="email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="loginPassword">Password</label>
+                            <input type="password" id="loginPassword" name="password" required>
+                        </div>
+                        <button type="submit" class="form-submit btn4">Login</button>
+                        <div class="form-switch">
+                            Don't have an account? <a href="#register" c>Register</a>
+                        </div>
+                    </form>
+                </div>
+                
+                <!-- Registration Form -->
+                <div class="form-card">
+                    <h3>New Member Registration</h3>
+                    <form id="registerForm">
+                        <div class="form-group">
+                            <label for="regName">Full Name</label>
+                            <input type="text" id="regName" name="name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="regEmail">Email</label>
+                            <input type="email" id="regEmail" name="email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="regPassword">Password</label>
+                            <input type="password" id="regPassword" name="password" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="regConfirmPassword">Confirm Password</label>
+                            <input type="password" id="regConfirmPassword" name="confirmPassword" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="regDepartment">Department</label>
+                            <select id="regDepartment" name="department" required>
+                                <option value="">Select Department</option>
+                                <option value="CSE">Computer Science & Engineering</option>
+                                <option value="IT">Information Technology</option>
+                                <option value="AIML">AI & Machine Learning</option>
+                                <option value="AIDS">AI & Data Science</option>
+                                <option value="ECE">Electronics & Communication</option>
+                                <option value="EEE">Electrical & Electronics</option>
+                                <option value="MECH">Mechanical Engineering</option>
+                                <option value="CIVIL">Civil Engineering</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="regYear">Year of Study</label>
+                            <select id="regYear" name="year" required>
+                                <option value="">Select Year</option>
+                                <option value="1">First Year</option>
+                                <option value="2">Second Year</option>
+                                <option value="3">Third Year</option>
+                                <option value="4">Fourth Year</option>
+                            </select>
+                        </div>
+                        <button type="submit" class="form-submit btn5">Register</button>
+                        <div class="form-switch">
+                            Already a member? <a href="#login">Login</a>
+                        </div>
+                    </form>
+                </div>
+                
+                <!-- Join ACM Form -->
+                <div class="form-card">
+                    <h3>Join ACM VVIT</h3>
+                    <form id="joinForm">
+                        <div class="form-group">
+                            <label for="joinName">Full Name</label>
+                            <input type="text" id="joinName" name="name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="joinEmail">Email</label>
+                            <input type="email" id="joinEmail" name="email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="joinRoll">Roll Number</label>
+                            <input type="text" id="joinRoll" name="roll" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="joinDepartment">Department</label>
+                            <select id="joinDepartment" name="department" required>
+                                <option value="">Select Department</option>
+                                <option value="CSE">Computer Science & Engineering</option>
+                                <option value="IT">Information Technology</option>
+                                <option value="AIML">AI & Machine Learning</option>
+                                <option value="AIDS">AI & Data Science</option>
+                                <option value="ECE">Electronics & Communication</option>
+                                <option value="EEE">Electrical & Electronics</option>
+                                <option value="MECH">Mechanical Engineering</option>
+                                <option value="CIVIL">Civil Engineering</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="joinYear">Year of Study</label>
+                            <select id="joinYear" name="year" required>
+                                <option value="">Select Year</option>
+                                <option value="1">First Year</option>
+                                <option value="2">Second Year</option>
+                                <option value="3">Third Year</option>
+                                <option value="4">Fourth Year</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="joinInterest">Areas of Interest (Select all that apply)</label>
+                            <select id="joinInterest" name="interest" multiple>
+                                <option value="programming">Programming</option>
+                                <option value="webdev">Web Development</option>
+                                <option value="appdev">App Development</option>
+                                <option value="ai">Artificial Intelligence</option>
+                                <option value="ml">Machine Learning</option>
+                                <option value="cyber">Cybersecurity</option>
+                                <option value="data">Data Science</option>
+                                <option value="cloud">Cloud Computing</option>
+                            </select>
+                        </div><br>
+                        <button type="submit" class="form-submit btn6">Apply Now</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Team Section -->
+    <section class="team" id="team">
+        <div class="container">
+            <h2 class="section-title" style="color:deeppink">Our Team</h2>
+            <div class="team-grid">
+                <div class="team-member">
+                    <div class="member-image">
+                        <img src="C:\Users\Admin\Desktop\fsdpractice\facutysponsar.jpg" alt="Team Member">
+                    </div>
+                    <div class="member-info">
+                        <h3>Dr. B.sai joythi mam</h3>
+                        <p>Faculty sponsor</p>
+                        <p>Professor, Inf Department</p>
+                        <div class="social-links">
+                            <a href="#"><i class="fab fa-linkedin"></i></a>
+                            <a href="#"><i class="fab fa-twitter"></i></a>
+                            <a href="#"><i class="fas fa-envelope"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="team-member">
+                    <div class="member-image">
+                        <img src="C:\Users\Admin\Desktop\fsdpractice\chair.jpg" alt="Team Member">
+                    </div>
+                    <div class="member-info">
+                        <h3>k.Bharghav Sai</h3>
+                        <p>Chair</p>
+                        <p>INF 3rd Year</p>
+                        <div class="social-links">
+                            <a href="#"><i class="fab fa-linkedin"></i></a>
+                            <a href="#"><i class="fab fa-twitter"></i></a>
+                            <a href="#"><i class="fas fa-envelope"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="team-member">
+                    <div class="member-image">
+                        <img src="C:\Users\Admin\Desktop\fsdpractice\vicechair.jpg" alt="Team Member">
+                    </div>
+                    <div class="member-info">
+                        <h3>V.Rakesh Firoz</h3>
+                        <p>Vice Chair</p>
+                        <p>AI&DS 3rd Year</p>
+                        <div class="social-links">
+                            <a href="#"><i class="fab fa-linkedin"></i></a>
+                            <a href="#"><i class="fab fa-twitter"></i></a>
+                            <a href="#"><i class="fas fa-envelope"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="team-member">
+                    <div class="member-image">
+                        <img src="C:\Users\Admin\Desktop\fsdpractice\webmaster.jpg" alt="Team Member">
+                    </div>
+                    <div class="member-info">
+                        <h3>T.Bharath</h3>
+                        <p>ACM WebMaster</p>
+                        <p>CSE 3rd Year</p>
+                        <div class="social-links">
+                            <a href="#"><i class="fab fa-linkedin"></i></a>
+                            <a href="#"><i class="fab fa-twitter"></i></a>
+                            <a href="#"><i class="fas fa-envelope"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="team-member">
+                    <div class="member-image">
+                        <img src="C:\Users\Admin\Desktop\fsdpractice\WEBMASTER2.png" alt="Team Member">
+                    </div>
+                    <div class="member-info">
+                        <h3>P.Usha Kiran</h3>
+                        <p>ACM-W WebMaster</p>
+                        <p>CSE(AI&ML) 3rd year</p>
+                        <div class="social-links">
+                            <a href="#"><i class="fab fa-linkedin"></i></a>
+                            <a href="#"><i class="fab fa-twitter"></i></a>
+                            <a href="#"><i class="fas fa-envelope"></i></a>
+                        </div>
+                    </div>
+                </div>             
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact" id="contact">
+        <div class="container">
+            <h2 class="section-title" style="color:red">Contact Us</h2>
+            <div class="contact-container">
+                <div class="contact-info">
+                    <h3>Get In Touch</h3>
+                    <div class="contact-details">
+                        <div class="contact-item">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <div>
+                                <h4>Address</h4>
+                                <p>Vasireddy Venkatadri Institute of Technology<br />Nambur  (V)Peda Kakani (Md)<br />Guntur (Dt)<br />Andhra Pradesh-522508.</p>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fas fa-envelope"></i>
+                            <div>
+                                <h4>Email</h4>
+                                <p>acm@vvit.net</p>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fas fa-phone-alt"></i>
+                            <div>
+                                <h4>Phone</h4>
+                                <p>+91 6300539482</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="social-links">
+                        <a href="https://www.facebook.com/vvitacmguntur/"><i class="fab fa-facebook-f"></i></a>
+                        <a href="https://x.com/acmvvit"><i class="fab fa-twitter"></i></a>
+                        <a href="https://www.linkedin.com/company/acm-vvit-guntur"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="https://www.instagram.com/acm_vvit/p/C_x93Tzh0KD/"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+                <div class="contact-form">
+                    <form>
+                        <div class="form-group">
+                            <label for="name">Your Name</label>
+                            <input type="text" id="name" name="name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Your Email</label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="subject">Subject</label>
+                            <input type="text" id="subject" name="subject" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Your Message</label>
+                            <textarea id="message" name="message" required></textarea>
+                        </div>
+                        <button type="submit" class="btn">Send Message</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>About ACM VVIT</h3>
+                    <p>The ACM VVIT Student Chapter is dedicated to advancing computing as a science and profession at vasireddy venkatadri institute of technology</p>
+                    <div class="social-footer">
+                        <a href="https://www.facebook.com/vvitacmguntur/"><i class="fab fa-facebook-f"></i></a>
+                        <a href="https://x.com/acmvvit"><i class="fab fa-twitter"></i></a>
+                        <a href="https://www.linkedin.com/company/acm-vvit-guntur"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="https://www.instagram.com/acm_vvit/p/C_x93Tzh0KD/"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+                <div class="footer-column">
+                    <h3>Quick Links</h3>
+                    <ul class="footer-links">
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#about">About Us</a></li>
+                        <li><a href="#events">Events</a></li>
+                        <li><a href="#team">Our Team</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Events</h3>
+                    <ul class="footer-links">
+                        <li><a href="#spardha">SPARDHA</a></li>
+                        <li><a href="#aveega">AVEEGA</a></li>
+                        <li><a href="#hoursofcode">HOURS-OF-CODE</a></li>
+                        <li><a href="#vivavvit">VIVA-VVIT</a></li>
+                       
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>address Info</h3>
+                    <p><i class="fas fa-map-marker-alt"></i> Vasireddy Venkatadri Institute of TechnologyVasireddy Venkatadri Institute of Technology<br />Nambur (V)<br />Peda Kakani (Md)<br />Guntur (Dt)<br />Andhra Pradesh<br />522508.</p>
+                  </div>
+                    <div class="footer-column">
+                    <div class="footer-links"></p>
+                        <h3>Contact info</h3>
+                    <p><i class="fas fa-envelope"></i> <a href="#">acm@vvit.net</a></p>
+                    <p><i class="fas fa-phone-alt"></i><a  href="#">+91 6300539482</a></p>
+                </div>
+            </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2023 ACM VVIT Student Chapter. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    
+</body>
+</html>
